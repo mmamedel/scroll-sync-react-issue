@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import "./styles.css";
 import { ScrollSync, ScrollSyncNode } from "scroll-sync-react";
 
@@ -19,10 +20,10 @@ export default function App() {
           <ScrollSyncNode group="A">
             <div style={{ overflow: "auto" }}>
               {oneToFifty.map((n) => (
-                <>
+                <Fragment key={`${n}_menu`}>
                   {n}
                   <br />
-                </>
+                </Fragment>
               ))}
             </div>
           </ScrollSyncNode>
@@ -30,11 +31,11 @@ export default function App() {
             <div style={{ overflow: "auto" }}>
               <div style={{ width: 1600 }}>
                 {oneToFifty.map((n) => (
-                  <>
+                  <Fragment key={`${n}_content`}>
                     {n}
                     {loremIpsum}
                     <br />
-                  </>
+                  </Fragment>
                 ))}
               </div>
             </div>
